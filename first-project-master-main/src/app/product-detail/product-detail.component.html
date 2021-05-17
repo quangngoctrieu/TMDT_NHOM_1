@@ -1,0 +1,90 @@
+<br />
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <div *ngIf="product">
+      <!--design detail product-->
+      <div class="row detail">
+        <div class="col-sm-6 showimage">
+          <img src={{product.image}} class="dsimage">
+        </div>
+        <div class="col-sm-6">
+          <h2 class="name-product">{{product.name}}</h2>
+          <hr>
+          <div>
+            <h5 class="brand-product text-info"> Brand:</h5>
+            <h4 style="margin-bottom: 0px;">{{product.brand}}</h4>
+          </div>
+          <br />
+          <div>
+            <h5 class="brand-product text-info"> Price:</h5>
+            <h4 style="margin-bottom: 0px;">{{product.price}} VNĐ</h4>
+          </div>
+          <br />
+          <div>
+            <h5 class="brand-product text-info"> Detail:</h5>
+            <p style="margin-top: 20px;">{{product.infor}}</p>
+          </div>
+          <br />
+          <hr>
+          <div>
+            <legend>Size:</legend>
+            <select (change)="setSize($event)">
+              <option *ngFor="let size of sizeChoose" value="{{size}}">{{size}}</option>
+            </select>
+          </div>
+          <fieldset>
+            <legend>Color:</legend>
+            <div>
+              <select (change)="setColor($event)">
+                <option *ngFor="let color of colorChoose" value="{{color}}">{{color}}</option>
+              </select>
+            </div>
+            <legend style="float: right;">Amount:</legend>
+            <div class="amount">
+              <button type="button" class="btn btn-outline-dark decrease" style="float: left;" (click)="decrease()"> -
+              </button>
+              <p style="float: left; width: 125px; text-align: center;">{{amount}}</p>
+              <button type="button" class="btn btn-outline-dark increase" style="float: left;" (click)="increase()"> +
+              </button>
+            </div>
+          </fieldset>
+          <hr>
+          <legend *ngIf="!total">TOTAL: {{product.price}} VND</legend>
+          <legend *ngIf="total">TOTAL: {{total}} VND</legend>
+          <hr>
+          <button type="button" class="btn btn-primary margin-button"
+            (click)="addToCart(product.id,product.name,product.price)">Add to card</button>
+          <button type="button" class="btn btn-outline-warning margin-button" (click)="seeMore(product.brand)">See
+            more</button>
+          <br>
+        </div>
+      </div>
+
+      <!--slide-->
+      <!--see more-->
+      <div>
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+          (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+          (beforeChange)="beforeChange($event)">
+          <div ngxSlickItem *ngFor="let item of listProducts| filter:name" class="slide">
+            <div class="card-body text-center" (click)="seeMoreProduct(item.id)">
+              <div class="card grow" style="width: auto;">
+                <img src={{item.image}}>
+                <div class="card-body">
+                  <h5 class="card-title">{{item.name}}</h5>
+                  <p class="card-text">{{item.brand}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ngx-slick-carousel>
+        <div class="center">
+          <button class="btn btn-outline-info margin-button" (click)="slickModal.slickGoTo(press())">Press</button>
+          <button class="btn btn-outline-info margin-button" (click)="slickModal.slickGoTo(next())">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2"></div>
+</div>

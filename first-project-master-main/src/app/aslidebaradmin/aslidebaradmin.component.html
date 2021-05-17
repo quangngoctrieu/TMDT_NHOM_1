@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar -->
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading">MANAGE</div>
+                <div class="list-group list-group-flush">
+                    <a routerLink="manegaaccount" class="list-group-item list-group-item-action bg-light">Account</a>
+                    <a routerLink="manegaoder" class="list-group-item list-group-item-action bg-light">Order</a>
+                    <a routerLink="manegaproduct" class="list-group-item list-group-item-action bg-light">Product</a>
+                    <a routerLink="manegahistoryoder" class="list-group-item list-group-item-action bg-light">History
+                        Order</a>
+                    <a routerLink="manegastatiscal"
+                        class="list-group-item list-group-item-action bg-light">Statistical</a>
+                    <a routerLink="manegabrand" class="list-group-item list-group-item-action bg-light">Brand</a>
+                </div>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+    <div class="col-sm-1"></div>
+</div>

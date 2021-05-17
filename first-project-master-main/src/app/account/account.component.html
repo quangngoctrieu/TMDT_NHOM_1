@@ -1,0 +1,61 @@
+<!-- <p>account works!</p>
+<input #id type="number"> user name<input #username type="text"> pass
+<input #pass type="password"> name
+<input #name type="text"> address
+<input #address type="text"> phonenumber
+<input #phone type="text">
+<input (click)="addAccount(id.value,username.value,pass.value,name.value,address.value,phone.value)" type="submit"> -->
+
+<!-- <form #formRegister="ngForm" (ngSubmit)="submitRegister(formRegister.value)">
+
+</form> -->
+
+<div class="brscreen">
+
+    <legend class="title">REGISTER MEMBER</legend>
+    <!-- <div class="row ">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <form #formRegister="ngForm" class="formRegister">
+                {{message}}
+                <div>
+                    <input type="text" #phone placeholder="phone number" name="phonenumber" class="inputText" (change)="checkPhoneNumber(phone.value)" />
+                </div>
+                {{message}}
+                <div>
+                    <input type="password" placeholder="password" name="password" class="inputText" />
+                </div>
+                {{message}}
+                <div>
+                    <input type="password" placeholder="confirm password" name="password" class="inputText" />
+                </div>
+                {{message}}
+                <div>
+                    <input type="text" placeholder="name account" name="nameaccount" class="inputText" />
+                </div>
+                {{message}}
+                <div>
+                    <input type="text" placeholder="address" name="address" class="inputText" />
+                </div>
+                
+                <div>
+                    <button type="button" class="btn btn-outline-success btclick">Register</button>
+                    <button type="button" class="btn btn-outline-secondary btclick">Cancel</button>
+
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div> -->
+
+
+    <div class="container">
+      <div class="center">
+        <input type="text" #phonenumber class="pnumber" placeholder="Enter your phone number">
+        <button type="button" class="btn btn-primary margin-button" (click)="registerPhone(phonenumber.value)"> Check </button>
+      </div>
+      
+    </div>
+
+
+</div>

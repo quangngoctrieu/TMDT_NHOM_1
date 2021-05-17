@@ -1,0 +1,122 @@
+<div class="container">
+  <br />
+  <div class="search-product">
+    <input type="search" name="name" id="input" class="form-control" [(ngModel)]="nameseach" ngModel
+      placeholder="Search everything in here">
+  </div>
+  <br />
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">
+          ID
+        </th>
+        <th scope="col">
+          <div *ngIf="!status">
+            <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">△</button>
+          </div>
+          <div *ngIf="status">
+            <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">▽</button>
+          </div>
+        </th>
+        <th scope="col">
+          Name Product
+        </th>
+        <th scope="col">
+          <div *ngIf="!status">
+            <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('name')">△</button>
+          </div>
+          <div *ngIf="status">
+            <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('name')">▽</button>
+          </div>
+        </th>
+        <th scope="col">
+          Price
+        </th>
+        <th scope="col">
+          <div *ngIf="!status">
+            <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('price')">△</button>
+          </div>
+          <div *ngIf="status">
+            <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('price')">▽</button>
+          </div>
+        </th>
+        <th scope="col">Size</th>
+        <th scope="col">Color</th>
+        <th scope="col">Total</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--<tr>
+            <th scope="col">
+                <button type="button" class="btn btn-outline-success" (click)="sort('id')">Sort</button>
+            </th>
+            <th scope="col">
+                <button type="button" class="btn btn-outline-success" (click)="sort('name')">Sort</button>
+            </th>
+            <th scope="col">
+                <button type="button" class="btn btn-outline-success" (click)="sort('price')">Sort</button>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>-->
+      <tr *ngFor="let itemoder of itemsCheckOut | filter:nameseach | orderBy: key: status">
+        <th scope="row">{{itemoder.id}}</th>
+        <td></td>
+        <td>{{itemoder.name}}</td>
+        <td></td>
+        <td>{{itemoder.price}}</td>
+        <td>
+        <td>{{itemoder.size}}</td>
+        <td>{{itemoder.color}}</td>
+        <td>{{itemoder.total}}</td>
+        <td>
+          <button type="button" class="btn btn-success"
+            (click)="openVerticallyCentered(content,itemoder)">Delivery</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!--infor item and user-->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">COUPON</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" id="customerInfo">
+      <h5>CUSTOMER INFORMATION</h5>
+      <strong>Name:</strong>
+      <p>{{name}}</p>
+      <strong>Phonenumber</strong>
+      <p>{{phonenumber}}</p>
+      <strong>Address</strong>
+      <p>{{address}}</p>
+      <hr>
+      <h5>PRODUCT INFORMATION</h5>
+      <strong>Product</strong>
+      <P>{{itemifor.name}}</P>
+      <strong>unit price</strong>
+      <p>{{itemifor.price}} VNĐ</p>
+      <strong>Size</strong>
+      <p>{{itemifor.size}}</p>
+      <strong>Color</strong>
+      <p>{{itemifor.color}}</p>
+      <strong>Total</strong>
+      <p>{{itemifor.total}}</p>
+      <hr>
+      <strong>Total Money</strong>
+      <p>{{itemifor.price*itemifor.total}}</p>
+      <p></p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light"
+        (click)="delivery(itemifor.id);modal.close('Close click');openPDF(name)">Delivery</button>
+      <!-- <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button> -->
+    </div>
+  </ng-template>
+</div>

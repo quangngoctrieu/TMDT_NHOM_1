@@ -1,0 +1,86 @@
+<div class="container">
+    <button type="button" class="btn btn-success margin-button" (click)="openScrollableContent2(longContent)">Add
+        Brand</button>
+    <div class="search-product">
+        <input type="search" name="name" id="input" class="form-control" [(ngModel)]="nameseach" ngModel
+            placeholder="Search everything in here">
+    </div>
+    <br />
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">
+                    <div *ngIf="!status">
+                        <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">△</button>
+                    </div>
+                    <div *ngIf="status">
+                        <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">▽</button>
+                    </div>
+                </th>
+                <th scope="col">Name</th>
+                <th scope="col">
+                    <div *ngIf="!status">
+                        <button type="button" class="btn btn-outline-success btn-sm"
+                            (click)="sort('namebrand')">△</button>
+                    </div>
+                    <div *ngIf="status">
+                        <button type="button" class="btn btn-outline-success btn-sm"
+                            (click)="sort('namebrand')">▽</button>
+                    </div>
+                </th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let item of brands | filter:nameseach | orderBy: key: status">
+                <td scope="row">{{item.id}}</td>
+                <td></td>
+                <td>{{item.name}}</td>
+                <td></td>
+                <td>
+                    <button type="button" class="btn btn-warning margin-button"
+                        (click)="openScrollableContent(longContent, item)">Change</button>
+                    <button type="button" class="btn btn-danger margin-button"
+                        (click)="openSm(content,item)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" style="color: red;">CẢNH BÁO</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Delete Account?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cancel</button>
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click'); delete()">Delete</button>
+        </div>
+    </ng-template>
+
+    <ng-template #longContent let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">CHANGE</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="exampleInputPassword1">Change: {{brandChange.name}}</label>
+                <input type="text" #namechange value={{brandChange.name}} class="form-control" id="namebrandchange"
+                    placeholder="Name Brand">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light"
+                (click)="modal.close('Close click'); change(namechange.value)">Close</button>
+        </div>
+    </ng-template>
+</div>

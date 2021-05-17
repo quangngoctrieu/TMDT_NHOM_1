@@ -1,0 +1,47 @@
+.inputText {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px;
+    outline-width: 0;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.title {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 100px;
+}
+
+.formRegister {
+    border: solid 1px;
+    border-radius: 5%;
+    padding: 15%;
+    box-shadow: 5px 5px 5px rgb(61, 61, 61);
+}
+
+.btclick {
+    text-align: center;
+    margin-left: 10px;
+}
+
+.center {
+  text-align: center;
+}
+input[type=text], select {
+  width: 230px;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.margin-button {
+  margin-left: 14px;
+  padding-top:12px;
+  padding-bottom:8px;
+}
+

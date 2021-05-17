@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <div *ngFor="let brand of listBrand">
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+        (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem *ngFor="let item of listProduct| orderBy:'-sold' | filter : brand.name " class="slide">
+          <div class="card-body text-center grow" (click)="seeMoreProduct(item.id)">
+            <div class="card" style="width: auto;">
+              <img class="responsive" src={{item.image}}>
+              <div class="card-body">
+                <h5 class="card-title bg-warning">{{item.name}}</h5>
+                <p><b>Sold:</b> {{item.sold}}</p>
+                <p class="card-text text-primary">{{item.brand}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+      <div class="center">
+        <button type="button" class="btn btn-outline-info padding-button btn-sm"
+          (click)="slickModal.slickGoTo(press(brand.id))">Press</button>
+        <button type="button" class="btn btn-outline-info padding-button btn-sm"
+          (click)="slickModal.slickGoTo(next(brand.id))">Next</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>

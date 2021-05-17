@@ -1,0 +1,46 @@
+<div class="center" *ngIf="!checkLogin">You are not logged in</div>
+<div *ngIf="checkLogin">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">ACCOUNT {{name}}</h5>
+                        <form class="form-signin">
+                            <div class="form-label-group">
+                                <label for="numberPhoneLogin">User Name</label>
+                                <input type="text" id="nameuser" #nameinput class="form-control" placeholder="Name" value={{name}}>
+                            </div>
+                            <div class="form-label-group">
+                                <label for="numberPhoneLogin">Phone Number</label>
+                                <input type="text" id="phoneuser" #phone class="form-control" placeholder="PhoneNumber" value={{phonenumber}} disabled="disabled">
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputPassword">Password</label>
+                                <input type="password" id="inputPassword" #passuser class="form-control" placeholder="Password" required autofocus>
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputPassword">New Password</label>
+                                <input type="password" id="inputPassword" #newpass class="form-control" placeholder="New Password" required autofocus>
+                            </div>
+                            <div class="form-label-group">
+                                <label for="inputPassword">Comfirm Password</label>
+                                <input type="password" id="inputPassword" #comfirmpass class="form-control" placeholder="Comfirm Password" required autofocus>
+                            </div>
+                            <div class="form-label-group">
+                                <label for="numberPhoneLogin">Address</label>
+                                <input type="text" id="address" #addressuser class="form-control" placeholder="Name" value={{address}}>
+                            </div>
+                            <br>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="checkNewPass(nameinput.value,passuser.value,newpass.value,comfirmpass.value, addressuser.value)">Change</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>

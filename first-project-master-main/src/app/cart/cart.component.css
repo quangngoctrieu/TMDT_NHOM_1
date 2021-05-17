@@ -1,0 +1,30 @@
+table,
+th,
+tr,
+td {
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    width: 100px;
+}
+
+
+.padding-button {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-left: 10px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.table-hover tr:hover {
+background:#9cdee7;
+}

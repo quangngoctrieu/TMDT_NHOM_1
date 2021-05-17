@@ -1,0 +1,28 @@
+.margin-button {
+  margin-bottom: 5px;
+}
+.pad-delete{
+  padding-left: 17px;
+  padding-right: 16px;
+}
+
+.table-hover tr:hover {
+background:#9cdee7;
+}
+
+.padding-button {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search-product {
+    max-width: 15rem;
+}
+
+.marginsearch {
+  padding: 7px 7px;
+  margin-bottom: 2px;
+  margin-right: 45px;
+}

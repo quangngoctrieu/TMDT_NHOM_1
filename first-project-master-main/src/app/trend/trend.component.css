@@ -1,0 +1,30 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.padding-button {
+  margin: 7px;
+}
+
+.responsive {
+  width: 200px;
+  max-width: 200px;
+  height: 230px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grow img {
+  transition: 1s ease;
+}
+
+  .grow img:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: 1s ease;
+  }

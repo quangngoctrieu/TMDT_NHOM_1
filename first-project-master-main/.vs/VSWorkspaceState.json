@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\manager-account",
+    "\\src\\app\\manager-brand",
+    "\\src\\app\\manager-oder",
+    "\\src\\app\\manager-product",
+    "\\src\\app\\manager-statiscal",
+    "\\src\\assets",
+    "\\src\\assets\\image",
+    "\\src\\environments"
+  ],
+  "SelectedNode": "\\src\\app\\manager-brand\\manager-brand.component.css",
+  "PreviewInSolutionExplorer": false
+}

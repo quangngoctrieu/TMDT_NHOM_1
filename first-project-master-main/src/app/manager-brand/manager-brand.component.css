@@ -1,0 +1,11 @@
+.margin-button {
+  margin: 14px 7px;
+}
+
+.table-hover tr:hover {
+background:#9cdee7;
+}
+
+.search-product {
+    max-width: 15rem;
+}

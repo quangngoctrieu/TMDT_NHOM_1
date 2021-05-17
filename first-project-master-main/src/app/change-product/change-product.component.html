@@ -1,0 +1,124 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">CHANGE {{product.name}}</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+                            <input type="email" #name value={{product.name}} class="form-control" id="inputname"
+                                placeholder="Enter Name">
+                        </div>
+                        <!--brand-->
+                        <div class="form-group">
+                            <select ng-model="mySelect" (change)="showSelectValue($event)">
+                                <option #namebrand *ngFor="let brand of brands">{{brand.name}}</option>
+                            </select>
+                        </div>
+                        <!--end brand-->
+                        <label for="exampleInputEmail1">color</label>
+                        <div class="form-group">
+                            <div class="form-check-inline">
+                                <label class="form-check-label" *ngIf="colorwhite">
+                                    <input type="checkbox" #colorwhite class="form-check-input" value="white"
+                                        checked="checked" (change)="changColorWhite($event)">white
+                                </label>
+                                <label class="form-check-label" *ngIf="!colorwhite">
+                                    <input type="checkbox" #colorwhite class="form-check-input" value="white"
+                                        (change)="changColorWhite($event)">white
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label" *ngIf="coloryellow">
+                                    <input type="checkbox" class="form-check-input" value="yellow" checked="checked"
+                                        (change)="changColorYellow($event)">yellow
+                                </label>
+                                <label class="form-check-label" *ngIf="!coloryellow">
+                                    <input type="checkbox" class="form-check-input" value="yellow"
+                                        (change)="changColorYellow($event)">yellow
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label" *ngIf="colorblu">
+                                    <input type="checkbox" class="form-check-input" value="blu" checked="checked"
+                                        (change)="changColorBlu($event)">blu
+                                </label>
+                                <label class="form-check-label" *ngIf="!colorblu">
+                                    <input type="checkbox" class="form-check-input" value="blu"
+                                        (change)="changColorBlu($event)">blu
+                                </label>
+                            </div>
+
+                            <div class="form-check-inline">
+                                <label class="form-check-label" *ngIf="colorred">
+                                    <input type="checkbox" class="form-check-input" value="red" checked="checked"
+                                        (change)="changColorRed($event)">red
+                                </label>
+                                <label class="form-check-label" *ngIf="!colorred">
+                                    <input type="checkbox" class="form-check-input" value="red"
+                                        (change)="changColorRed($event)">red
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label" *ngIf="colorblack">
+                                    <input type="checkbox" class="form-check-input" value="black" checked="checked"
+                                        (change)="changColorBlack($event)">black
+                                </label>
+                                <label class="form-check-label" *ngIf="!colorblack">
+                                    <input type="checkbox" class="form-check-input" value="black"
+                                        (change)="changColorBlack($event)">black
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label" *ngIf="colorbrown">
+                                    <input type="checkbox" class="form-check-input" value="brown" checked="checked"
+                                        (change)="changColorBrown($event)">brown
+                                </label>
+                                <label class="form-check-label" *ngIf="!colorbrown">
+                                    <input type="checkbox" class="form-check-input" value="brown"
+                                        (change)="changColorBrown($event)">brown
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label" *ngIf="colorping">
+                                    <input type="checkbox" class="form-check-input" value="ping" checked="checked"
+                                        (change)="changColorPing($event)">ping
+                                </label>
+                                <label class="form-check-label" *ngIf="!colorping" (change)="changColorPing($event)">
+                                    <input type="checkbox" class="form-check-input" value="ping">ping
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">type</label>
+                            <input type="text" #type value={{product.type}} class="form-control" id="inputtext"
+                                placeholder="Enter Type" style="width: 200px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">price</label>
+                            <input type="text" #price value={{product.price}} class="form-control" id="inputprice"
+                                placeholder="Enter Price" style="width: 200px;">
+                        </div>
+                        <!--info details-->
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Infor</label>
+                            <textarea #infor class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                value={{product.infor}}></textarea>
+                        </div>
+                        <!--en infor details-->
+                        <label for="exampleInputEmail1">hình</label>
+                        <div class="form-group">
+                            <img src={{product.image}} style="width: 200px;">
+                            <div class="form-group">
+                                <input type="file" #stringimage class="form-control-file border" name="file">
+                            </div>
+                        </div>
+                    </form>
+                    <button type="button" class="btn btn-outline-success"
+                        (click)=" xem(stringimage.value,product.image, name.value, type.value, price.value, infor.value ) ">Change</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

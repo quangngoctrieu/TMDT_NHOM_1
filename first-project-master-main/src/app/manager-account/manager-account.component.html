@@ -1,0 +1,132 @@
+<div class="container">
+  <button type="button" class="btn btn-success padding-button" (click)="openVerticallyCentered2(content)">Add
+    member</button>
+  <div class="search-product">
+    <input type="search" name="name" id="input" class="form-control marginsearch" [(ngModel)]="name" ngModel
+      placeholder="Search everything in here">
+  </div>
+  <br />
+
+  <div style="width: 100%;">
+    <table class="table table-hover" style="width: 100%;">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">
+            <div *ngIf="!status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">△</button>
+            </div>
+            <div *ngIf="status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">▽</button>
+            </div>
+          </th>
+          <th scope="col">Name</th>
+          <th scope="col">
+            <div *ngIf="!status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('name')">△</button>
+            </div>
+            <div *ngIf="status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('name')">▽</button>
+            </div>
+          </th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Password</th>
+          <th scope="col">Address</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr>
+          <th scope="col">
+            <button type="button" class="btn btn-outline-success" (click)="sort('id')">Sort</button>
+          </th>
+          <th scope="col">
+            <button type="button" class="btn btn-outline-success" (click)="sort('name')">Sort</button>
+          </th>
+
+          <th scope="col"></th>
+          <th scope="col">
+            <button type="button" class="btn btn-outline-success" (click)="sort('address')">Sort</button>
+          </th>
+          <th scope="col">Action</th>
+        </tr> -->
+        <tr *ngFor="let account of accounts | filter:name | orderBy: key: status">
+          <th scope="row">{{account.id}}</th>
+          <td></td>
+          <td>{{account.name}}</td>
+          <td></td>
+          <td>{{account.phonenumber}}</td>
+          <td>{{account.pass}}</td>
+          <td>{{account.address}}</td>
+          <td>
+            <button type="button" class="btn btn-warning margin-button"
+              (click)="openVerticallyCentered(content,account)">Change</button>
+            <button class="btn btn-danger pad-delete"
+              (click)="openScrollableContent(longContent,account)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">ACCOUNT</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!--infor-->
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="email" #name value={{inforAccount.name}} class="form-control" id="exampleInputEmail1"
+            placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Phone Number</label>
+          <input type="text" value={{inforAccount.phonenumber}} #phonenumber class="form-control"
+            id="exampleInputEmail1" placeholder="Enter Phone Number">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="text" #pass value={{inforAccount.pass}} class="form-control" id="exampleInputPassword1"
+            placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Address</label>
+          <input type="text" #address value={{inforAccount.address}} class="form-control" id="exampleInputEmail1"
+            placeholder="Enter Address">
+        </div>
+      </form>
+      <!--end infor-->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light"
+        (click)="modal.close('Close click');changeInfor(phonenumber.value, pass.value, name.value, address.value)">Success</button>
+      <!-- <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button> -->
+    </div>
+  </ng-template>
+
+
+
+
+
+
+  <ng-template #longContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" style="color: red;">CẢNH BÁO</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h4>Xóa tài khoản</h4>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Hủy</button>
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click'); deleteAccount()">Đòng ý</button>
+    </div>
+  </ng-template>
+</div>

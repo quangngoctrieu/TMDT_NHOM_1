@@ -1,0 +1,68 @@
+<div class="container">
+  <br />
+  <div class="search-product">
+    <input type="search" name="name" id="input" class="form-control" [(ngModel)]="name" ngModel
+      placeholder="Search everything in hear">
+  </div>
+  <br />
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">
+            <div *ngIf="!status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">△</button>
+            </div>
+            <div *ngIf="status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">▽</button>
+            </div>
+          </th>
+          <th scope="col">Name</th>
+          <th scope="col">
+            <div *ngIf="!status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('name')">△</button>
+            </div>
+            <div *ngIf="status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('name')">▽</button>
+            </div>
+          </th>
+          <th scope="col">Brand</th>
+          <th scope="col">
+            <div *ngIf="!status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('brand')">△</button>
+            </div>
+            <div *ngIf="status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('brand')">▽</button>
+            </div>
+          </th>
+          <th scope="col">Type</th>
+          <th scope="col">Sold</th>
+          <th scope="col">
+            <div *ngIf="!status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('sold')">△</button>
+            </div>
+            <div *ngIf="status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('sold')">▽</button>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let item of products | filter:name| orderBy: key: status | paginate: { itemsPerPage: 14, currentPage: p }">
+          <th scope="row">{{item.id}}</th>
+          <th></th>
+          <td>{{item.name}}</td>
+          <th></th>
+          <td>{{item.brand}}</td>
+          <th></th>
+          <td>{{item.type}}</td>
+          <td>{{item.sold}}</td>
+          <th></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

@@ -1,0 +1,131 @@
+.showimage {
+    height: auto;
+}
+
+.detail {
+    border: solid 1px;
+}
+
+.name-product {
+    text-align: center;
+}
+
+.brand-product {
+    float: left;
+    margin-bottom: 0px;
+    width: 20%;
+}
+
+.seeMore {
+    display: none;
+}
+
+.decrease {
+    width: 100px;
+}
+
+.increase {
+    width: 100px;
+}
+
+.white {
+    background-color: rgb(255, 255, 255);
+    border: solid 1px;
+    border-radius: 100%;
+    height: 28px;
+    width: 28px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.red {
+    background-color: rgb(245, 75, 75);
+    border: solid 1px;
+    border-radius: 100%;
+    height: 28px;
+    width: 28px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.blu {
+    float: left;
+    background-color: #41AAC4;
+    border: solid 1px;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    margin-left: 50px;
+}
+
+.yellow {
+    float: left;
+    background-color: #F9E559;
+    border: solid 1px;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    margin-left: 50px;
+}
+
+.black {
+    background-color: #565656;
+    border: solid 1px;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    margin-left: 50px;
+}
+
+.brown {
+    background-color: #494040;
+    border: solid 1px;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    margin-left: 50px
+}
+
+.ping {
+    background-color: #c54068;
+    border: solid 1px;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    margin-left: 50px
+}
+
+.grow img {
+  transition: 1s ease;
+  width: 150px;
+  height: 180px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  .grow img:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: 1s ease;
+  }
+
+.margin-button {
+  margin: 14px 7px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+}
+.dsimage {
+  width: 380px;
+  height: 410px;
+  overflow: hidden;
+  margin-top:5px;
+  margin-left: auto;
+  margin-right: auto;
+}

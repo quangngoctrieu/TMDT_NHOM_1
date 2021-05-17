@@ -1,0 +1,150 @@
+<div class="container">
+  <button type="button" routerLink="/addproduct" class="btn btn-success margin-button">Add Product</button>
+  <div class="search-product">
+    <input type="search" name="name" id="input" class="form-control" [(ngModel)]="name" ngModel
+      placeholder="Search everything in here">
+  </div>
+  <br />
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">
+            ID
+          </th>
+          <!--<th scope="col">
+              <div *ngIf="!status">
+                <button type="button" class="btn btn-outline-success" (click)="sort('id')">△</button>
+              </div>
+              <div *ngIf="status">
+                <button type="button" class="btn btn-outline-success" (click)="sort('id')">▽</button>
+              </div>
+            </th>-->
+          <th scope="col">
+            <div *ngIf="!status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">△</button>
+            </div>
+            <div *ngIf="status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('id')">▽</button>
+            </div>
+          </th>
+          <th scope="col">
+            Name
+          </th>
+          <th scope="col">
+            <div *ngIf="!status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('name')">△</button>
+            </div>
+            <div *ngIf="status">
+              <button type="button" class="btn btn-outline-success btn-sm" (click)="sort('name')">▽</button>
+            </div>
+          </th>
+          <!--<th scope="col">
+              <div *ngIf="!status">
+                <button type="button" class="btn btn-outline-success" (click)="sort('name')">△</button>
+              </div>
+              <div *ngIf="status">
+                <button type="button" class="btn btn-outline-success" (click)="sort('name')">▽</button>
+              </div>
+            </th>-->
+          <th scope="col">Image</th>
+          <th scope="col">Acction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+
+        <tr
+          *ngFor="let item of products | filter:name| orderBy: key: status | paginate: { itemsPerPage: 8, currentPage: p }">
+          <th scope="row">{{item.id}}</th>
+          <td></td>
+          <td>{{item.name}}</td>
+          <td></td>
+          <td>
+            <img src={{item.image}} style="width: 90px;">
+          </td>
+          <td>
+            <button type="button" class="btn btn-info margin-button"
+              (click)="openScrollableContent(longContent, item)">Infor</button>
+            <button type="button" class="btn btn-danger margin-button" (click)="openSm(content, item)">Delete
+              Product</button>
+            <!-- <button type="button" class="btn btn-danger" (click)="">Delete</button> -->
+            <!-- <button class="btn btn-danger" (click)="openScrollableContent(longContent,account)">Delete</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <ng-template #longContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <img src={{productInfor.image}} style="width: 100%;">
+      <strong>Name</strong>
+      <p>{{productInfor.name}}</p>
+      <strong>Brand</strong>
+      <p>{{productInfor.brand}}</p>
+      <strong>Price</strong>
+      <p>{{productInfor.price}} VNĐ</p>
+      <strong>Color</strong>
+      <div style="width: 100%; height: 50px;">
+        <div *ngFor="let item of productInfor.color">
+          <p class={{item}}>{{item}}</p>
+        </div>
+      </div>
+      <strong>Type</strong>
+      <p>{{productInfor.type}}</p>
+      <strong>Infor</strong>
+      <p>{{productInfor.infor}}</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')"
+        routerLink="/changeproduct/{{productInfor.id}}">Change</button>
+
+    </div>
+  </ng-template>
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" style="color: red;">CẢNH BÁO</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h4>Xóa sản phẩm?</h4>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Close click');deleteProduct()">Delete</button>
+      <button type="button" class="btn btn-outline-info" (click)="modal.close('Close click')">Cancel</button>
+    </div>
+  </ng-template>
+
+
+
+
+  <!-- <ng-template #longContent let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" style="color: red;">CẢNH BÁO</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <h4>Xóa tài khoản</h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Hủy</button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click'); deleteProduct(item)">Đòng ý</button>
+    </div>
+</ng-template> -->
+</div>

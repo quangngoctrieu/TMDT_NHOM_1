@@ -1,0 +1,68 @@
+.white {
+    float: left;
+    margin: 10px;
+}
+
+.blu {
+    float: left;
+    margin: 10px;
+    color: rgb(30, 30, 245);
+}
+
+.yellow {
+    float: left;
+    margin: 10px;
+    color: rgb(193, 246, 0);
+}
+
+.red {
+    float: left;
+    margin: 10px;
+    color: rgb(246, 0, 0);
+}
+
+.brown {
+    float: left;
+    margin: 10px;
+    color: rgb(85, 83, 85);
+}
+
+.ping {
+    float: left;
+    margin: 10px;
+    color: rgb(246, 0, 185);
+}
+
+.black {
+    float: left;
+    margin: 10px;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.margin-button {
+  margin: 14px 7px;
+}
+
+.table-hover tr:hover {
+background:#9cdee7;
+}
+
+.search-product {
+    max-width: 15rem;
+}

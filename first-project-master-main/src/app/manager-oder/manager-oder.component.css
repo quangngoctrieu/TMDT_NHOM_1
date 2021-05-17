@@ -1,0 +1,7 @@
+.table-hover tr:hover {
+background:#9cdee7;
+}
+
+.search-product {
+    max-width: 15rem;
+}
